@@ -5,9 +5,7 @@ class Problem:
         self.constraints = constraints #how list ?
 
     def is_satisfied (self,constraint,assignments): # given constrains in pairs should never be equal
-
-    #constriant representation?
-        return True
+       return  assignments[constraint[0]]!=assignments[constraint[1]]
 
     def solve(self):
         assignments = {}# canot represented by nCr,must be given
@@ -22,7 +20,7 @@ class Problem:
 
         for value in self.order_domain_values(variable, assignments):
             if self.is_consistent(variable, value, assignments):
-                assignments[variable] = value
+                assignments[variable] = value#?
                 if self.backtrack(assignments):
                     return True
             del assignments[variable] #?
@@ -41,7 +39,7 @@ class Problem:
         assignments[variable] = value
         for constraint in self.constraints:
             if not self.is_satisfied(constraint,assignments):
-                del assignments[variable]#?
+                del assignments[variable]
                 return False
         del assignments[variable]#?
         return True
