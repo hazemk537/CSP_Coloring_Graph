@@ -18,9 +18,9 @@ class Problem:
 
         variable = self.select_unassigned_variable(assignments)#find the unassigned var
 
-        for value in self.order_domain_values(variable, assignments):
+        for value in self.domains:
             if self.is_consistent(variable, value, assignments):
-                assignments[variable] = value#?
+                assignments[variable] = value
                 if self.backtrack(assignments):
                     return True
             del assignments[variable] #?
@@ -32,8 +32,7 @@ class Problem:
             if variable not in assignments:
                 return variable
 
-    def order_domain_values(self, variable, assignments):#domain should be changed automatically 
-        return self.domains[variable]
+
 
     def is_consistent(self, variable, value, assignments):
         assignments[variable] = value
