@@ -3,7 +3,7 @@
 
 # description
 - we have a  map  of australia ! 
-- ![Alt text](../assets/map.png)
+- ![Alt text](/assets/map.png)
 - we need to color each part of the map with different color !
 - this simple CSP problem has :
 1. variables (6 parts of map)
