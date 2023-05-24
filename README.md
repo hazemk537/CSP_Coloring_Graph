@@ -1,17 +1,16 @@
 # CSP_Coloring_Graph
 
-```
-Traceback (most recent call last):
-  File "/home/up-user/Downloads/Projects/AICSP/index.py", line 22, in <module>
-    solution = problem.solve()
-  File "/home/up-user/Downloads/Projects/AICSP/solver.py", line 12, in solve
-    self.backtrack(assignments)
-  File "/home/up-user/Downloads/Projects/AICSP/solver.py", line 22, in backtrack
-    if self.is_consistent(variable, value, assignments):
-  File "/home/up-user/Downloads/Projects/AICSP/solver.py", line 40, in is_consistent
-    if not self.is_satisfied(constraint,assignments):
-  File "/home/up-user/Downloads/Projects/AICSP/solver.py", line 8, in is_satisfied
-    return  assignments[constraint[0]]!=assignments[constraint[1]]
-KeyError: 'NT'
 
-```
+# description
+- we have a  map  of australia ! 
+- ![Alt text](../assets/map.png)
+- we need to color each part of the map with different color !
+- this simple CSP problem has :
+1. variables (6 parts of map)
+2. domain of color values (three colors )
+3. constraints (NO two adjacent parts have the same colors )!
+
+# solution 
+- index.py is an object of the solver.py CLass
+- read the commented code 🔥🔥
+
