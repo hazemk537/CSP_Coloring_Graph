@@ -14,14 +14,13 @@ class Problem:
         return assignments
 
     def backtrack(self, assignments):
-        if len(assignments) >= len(self.variables):##>=
+        if len(assignments) == len(self.variables):##>=
             return True
 
         variable = self.select_unassigned_variable(assignments)  # 1.select Unassigned Var
         for value in self.domains:
 
             if self.is_consistent(variable, value, assignments):#2. select  value (Red->Green->Blue) and check it 
-                 assignments[variable] = value
                  if self.backtrack(assignments):
                     return True
         return False
