@@ -2,8 +2,8 @@ from solver import *
 
 # Define the problem
 # Define the variables (regions) and their possible values (colors)
-mapChoice =input("Choose map: \n1. Australia \n2. Canada")
-if mapChoice=="Australia":
+mapChoice =int(input("Choose map: \n1. Australia \n2. Canada"))
+if mapChoice==1:
     variables = ['Western Australia', 'Northern Territory', 'South Australia', 'Queensland', 'New South Wales',
                  'Victoria', 'Tasmania']
     # Australia Regions
@@ -21,6 +21,7 @@ if mapChoice=="Australia":
         ('Tasmania', 'Victoria')
     ]
 else:
+    domains = ['R', 'G', 'B', "Y"]
     variables=[
         'Alberta',
         'British Columbia',
