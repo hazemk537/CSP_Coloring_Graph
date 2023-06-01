@@ -69,26 +69,22 @@ class Problem:
                 return False
         return True#6. if all constraints are well !
 
-    def map_plot(self, solution):
-        print("Ready to plot map for Canda")
-        path = "./states_21basic/"
+    def map_plot(self, soulation):
+        print("Ready to plot map for AUS")
+        path = "./aus_basic/"
         # # load the shape file using geopandas
-        states = geopandas.read_file(path + 'states.shp')
+        states = geopandas.read_file(path + 'STE_2016_AUST.shp')
         states = states.to_crs("EPSG:3395")
         ax2 = states.boundary.plot(figsize=(12, 12), edgecolor=u'gray')
-        print(len(solution))
-        for k, v in solution.items():
+        if soulation is not None:
+            for k, v in soulation.items():
+                if v == 'R':
+                    states[states.STE_NAME16 == k].plot(edgecolor=u'gray', color='red', ax=ax2)
+                elif v == 'B':
+                    states[states.STE_NAME16 == k].plot(edgecolor=u'gray', color='blue', ax=ax2)
+                elif v == 'G':
+                    states[states.STE_NAME16 == k].plot(edgecolor=u'gray', color='green', ax=ax2)
+                else:
+                    states[states.STE_NAME16 == k].plot(edgecolor=u'gray', color='yellow', ax=ax2)
 
-
-
-            if v == 'R':
-                states[states.STATE_NAME == k].plot(edgecolor=u'gray', color='yellow', ax=ax2)
-            elif v == 'B':
-                states[states.STATE_NAME == k].plot(edgecolor=u'gray', color='blue', ax=ax2)
-            elif v == 'G':
-                states[states.STATE_NAME == k].plot(edgecolor=u'gray', color='green', ax=ax2)
-            else:
-                states[states.STATE_NAME == k].plot(edgecolor=u'gray', color='red', ax=ax2)
-
-        plt.show()
-
+            plt.show()
